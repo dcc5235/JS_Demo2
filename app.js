@@ -2,7 +2,7 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-const filterOption = document.querySelector(".todo-list");
+const filterOption = document.querySelector(".filter-todo");
 
 //Event Listeners
 todoButton.addEventListener("click", addTodo);
@@ -69,6 +69,25 @@ function filterTodo(e) {
         } else {
           todo.style.display = "none";
         }
+        break;
+      case "incomplete":
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
     }
   });
+}
+
+function saveLocalTodos(todo) {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos.JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
