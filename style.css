@@ -56,3 +56,12 @@ form button:hover{
   list-style: none;
 }
 
+.todo {
+  margin: .5rem;
+  background: #fff;
+  color: #000;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+align-items: center;
+}
